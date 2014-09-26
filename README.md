@@ -3,7 +3,7 @@ IExp
 
 ##Introduction
 
-IExp is an interpreter, written in c#, for simple mathematical expressions.
+<b>IExp</b> is an interpreter, written in <b>c#</b>, for simple mathematical expressions.
 
 It is really simple to use. You need just to run it and it will appear a Windows Form.<br />
 It contains a menu containing the items:
@@ -14,11 +14,11 @@ It contains a menu containing the items:
 The Help button says what you should do in order to have you expression file interpeter.<br />
 I report here the steps:<br />
  1. Click on File → Open File
- 2. Select a text file with the same format of try.txt
+ 2. Select a text file with the same format of <i>try.txt</i>
  3. Click on Execute -> Iterpreter
  4. See the result on the TextArea
- 5. Try to click on the nodes of the tree
-Where try.txt is an example file provided to you.
+ 5. Try to click on the nodes of the tree<br />
+Where <i>try.txt</i> is an example file provided to you.
 
 ####Key Features:
 
