@@ -1,24 +1,26 @@
 IExp
 ====
 
-#Introduction
+##Introduction
 
 IExp is an interpreter, written in c#, for simple mathematical expressions.
 
 It is really simple to use. You need just to run it and it will appear a Windows Form.
 It contains a menu containing the items:
- - File → containing OpenFile that allow you to open the file that you want to interpreter
- - Interpreter → interpreter the opened file
- - ? → containing a Help button
+ - <b>File</b> → containing OpenFile that allow you to open the file that you want to interpreter
+ - <b>Interpreter</b> → interpreter the opened file
+ - <b>?</b> → containing a Help button
 
-The Help button says what you should do in order to have you expression file interpeter. I report here the steps:
+The Help button says what you should do in order to have you expression file interpeter.
+I report here the steps:
 1. Click on File → Open File
 2. Select a text file with the same format of try.txt
 3. Click on Execute -> Iterpreter
 4. See the result on the TextArea
 5. Try to click on the nodes of the tree
+Where try.txt is an example file provided to you.
 
-###Key Features:
+####Key Features:
 
 - Simple to use
 - Full of comments
@@ -27,7 +29,7 @@ The Help button says what you should do in order to have you expression file int
 - Graphical interface of the Abstract Syntax Tree
 - No dependencies to external libraries
 
-#Examples
+##Examples
 ```c#
   // Initialize the Scanner.
   Scanner scanner = new Scanner(fileContent);
@@ -63,15 +65,14 @@ The Help button says what you should do in order to have you expression file int
   {
     // Write the LexicalException/ParserException/ParseTreeException on the Console.
     System.Console.Write(ex.Message + "\n");
-    TextArea.Text += ex.Message + "\r\n";
   }
 ```
 
-#Mathematical Supported Operators
+##Mathematical Supported Operators
 
-| Operator	|        Description      |
+| Operator	| Description |
 |----------|-------------------------|
-|    +     |	Additive operator       |
-|    -     |	Subtraction operator    |
-|    *     |	Multiplication operator |
-|    ÷     |	Division operator       |
+| + |	Additive operator |
+| - |	Subtraction operator |
+| * |	Multiplication operator |
+| ÷ |	Division operator |
