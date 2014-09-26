@@ -1,52 +1,77 @@
 IExp
 ====
 
-An interpreter of simple mathematical expression in c#
+#Introduction
 
-EvalEx - Java Expression Evaluator
-Introduction
+IExp is an interpreter, written in c#, for simple mathematical expressions.
 
-EvalEx is a handy expression evaluator for Java, that allows to evaluate simple mathematical and boolean expressions.
+It is really simple to use. You need just to run it and it will appear a Windows Form.
+It contains a menu containing the items:
+ - File → containing OpenFile that allow you to open the file that you want to interpreter
+ - Interpreter → interpreter the opened file
+ - ? → containing a Help button
 
-Key Features:
+The Help button says what you should do in order to have you expression file interpeter. I report here the steps:
+1. Click on File → Open File
+2. Select a text file with the same format of try.txt
+3. Click on Execute -> Iterpreter
+4. See the result on the TextArea
+5. Try to click on the nodes of the tree
 
-Uses BigDecimal for calculation and result
-Single class implementation, very compact
-No dependencies to external libraries
-Precision and rounding mode can be set
-Supports variables
-Standard boolean and mathematical operators
-Standard basic mathematical and boolean functions
-Custom functions and operators can be added at runtime
-Examples
+###Key Features:
 
- BigDecimal result = null;
+- Simple to use
+- Full of comments
+- Supports Sandcastle Documentation
+- Standard mathematical operators
+- Graphical interface of the Abstract Syntax Tree
+- No dependencies to external libraries
 
- Expression expression = new Expression("1+1/3");
- result = expression.eval():
- expression.setPrecision(2);
- result = expression.eval():
+#Examples
+```c#
+  // Initialize the Scanner.
+  Scanner scanner = new Scanner(fileContent);
+  
+  try
+  {
+    // Create the collection of Token that can be enumerated.
+    IEnumerable<Token> tokens = scanner.Tokenize();
+    
+    // Write the collection on the Console.
+    foreach (var token in tokens)
+      System.Console.Write("   -   " + token + "\n");
+  }
+  catch (System.LexicalException ex)
+  {
+    // Write the LexicalException on the Console.
+    System.Console.Write(ex.Message + "\n");
+  }
+  
+  try
+  {
+    // Initialize the Parser.
+    Parser parser = new Parser(fileContent);
+    
+    // Create the Abstract Syntax Tree.
+    root = parser.ParseTree();
+    
+    // Get the result of visiting the Abstract Syntax Tree and write it on the Console.
+    int result = root.GetValue();
+    System.Console.Write("Il risultato dell'espressione = " + result + "\n");
+  }
+  catch (System.Exception ex)
+  {
+    // Write the LexicalException/ParserException/ParseTreeException on the Console.
+    System.Console.Write(ex.Message + "\n");
+    TextArea.Text += ex.Message + "\r\n";
+  }
+```
 
- result = new Expression("(3.4 + -4.1)/2").eval();
+#Mathematical Supported Operators
 
- result = new Expression("SQRT(a^2 + b^2").with("a","2.4").and("b","9.253").eval();
-
- BigDecimal a = new BigDecimal("2.4");
- BigDecimal b = new BigDecimal("9.235");
- result = new Expression("SQRT(a^2 + b^2").with("a",a).and("b",b).eval();
-
- result = new Expression("2.4/PI").setPrecision(128).setRoundingMode(RoundingMode.UP).eval();
-
- result = new Expression("random() > 0.5").eval();
-
- result = new Expression("not(x<7 || sqrt(max(x,9)) <= 3))").with("x","22.9").eval();
-Supported Operators
-
-Mathematical Operators
-Operator	Description
-+	Additive operator
--	Subtraction operator
-*	Multiplication operator
-/	Division operator
-%	Remainder operator (Modulo)
-^	Power operator
+| Operator	|        Description      |
+|----------|-------------------------|
+|    +     |	Additive operator       |
+|    -     |	Subtraction operator    |
+|    *     |	Multiplication operator |
+|    ÷     |	Division operator       |
