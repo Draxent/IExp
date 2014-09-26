@@ -1,0 +1,759 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IExp</name>
+    </assembly>
+    <members>
+        <member name="T:IExp.AbstractSyntaxTree.OperationType">
+            <summary>
+            It is an enumeration type that reports all possible operations supported by the <see cref="T:IExp.AbstractSyntaxTree.OperationNode"/> class.
+            </summary>
+        </member>
+        <member name="F:IExp.AbstractSyntaxTree.OperationType.PLUS">
+            <summary>"+" operation</summary>
+        </member>
+        <member name="F:IExp.AbstractSyntaxTree.OperationType.MINUS">
+            <summary>"-" operation</summary>
+        </member>
+        <member name="F:IExp.AbstractSyntaxTree.OperationType.MUL">
+            <summary>"*" operation</summary>
+        </member>
+        <member name="F:IExp.AbstractSyntaxTree.OperationType.DIV">
+            <summary>"÷" operation</summary>
+        </member>
+        <member name="T:IExp.AbstractSyntaxTree.OperationNode">
+            <summary>
+            Denote an node operational of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="T:IExp.AbstractSyntaxTree.SyntacticNode">
+            <summary>
+            Denote the generic node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="F:IExp.AbstractSyntaxTree.SyntacticNode.GraphicNode">
+            <summary>The node contain a pointer to its visual representation.</summary>
+        </member>
+        <member name="M:IExp.AbstractSyntaxTree.SyntacticNode.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.AbstractSyntaxTree.SyntacticNode"/> class.
+            </summary>
+        </member>
+        <member name="M:IExp.AbstractSyntaxTree.SyntacticNode.GetValue">
+            <summary>
+            It is an abstract method to return the value of the node exploring the tree under it.
+            </summary>
+            <returns>An integer value representing the valuation of the expression contained in the tree of this node.</returns>
+        </member>
+        <member name="F:IExp.AbstractSyntaxTree.OperationNode.type">
+            <summary>Represent the type of operation that we want to execute.</summary>
+        </member>
+        <member name="M:IExp.AbstractSyntaxTree.OperationNode.#ctor(IExp.AbstractSyntaxTree.OperationType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.AbstractSyntaxTree.OperationNode"/> class.
+            </summary>
+            <param name="t">The type of operation that we want to execute</param>
+        </member>
+        <member name="M:IExp.AbstractSyntaxTree.OperationNode.ConvertType(IExp.LexicalAnalysis.TokenType)">
+            <summary>
+            Covert a TokenType into an OperationType.
+            </summary>
+            <param name="t">The TokenType t to convert.</param>
+            <returns>The value of t of type OperationType.</returns>
+            <exception cref="T:System.ParseTreeException">Thrown when it cannot do the conversion.</exception>
+        </member>
+        <member name="M:IExp.AbstractSyntaxTree.OperationNode.OperationType_ToString(IExp.AbstractSyntaxTree.OperationType)">
+            <summary>
+            Represent the OperationType <paramref name="t"/> in text format
+            </summary>
+            <param name="t">The OperationType t to trasform in text.</param>
+            <returns>The value of t in text format.</returns>
+        </member>
+        <member name="T:IExp.AbstractSyntaxTree.UnaryOperationNode">
+            <summary>
+            Denote a unary operation node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:IExp.AbstractSyntaxTree.UnaryOperationNode.#ctor(IExp.AbstractSyntaxTree.OperationType,IExp.AbstractSyntaxTree.SyntacticNode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.AbstractSyntaxTree.UnaryOperationNode"/> class.
+            </summary>
+            <param name="t">The type of operation that we want to execute.</param>
+            <param name="n">The child.</param>
+        </member>
+        <member name="M:IExp.AbstractSyntaxTree.UnaryOperationNode.GetValue">
+            <summary>
+            The method takes the value of the child and executes the requested operation on it.
+            </summary>
+            <returns>
+            The value of the executed operation.
+            </returns>
+            <exception cref="T:System.ParseTreeException">Thrown when the operation is is not supported.</exception>
+        </member>
+        <member name="T:IExp.DrawingBox">
+            <summary>
+            An exstension component of the Panel component.
+            </summary>
+        </member>
+        <member name="M:IExp.DrawingBox.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.DrawingBox"/> class.
+            </summary>
+        </member>
+        <member name="M:IExp.DrawingBox.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.DrawingBox"/> class.
+            </summary>
+            <param name="container">The container.</param>
+        </member>
+        <member name="F:IExp.DrawingBox.components">
+            <summary>
+            Variabile di progettazione necessaria.
+            </summary>
+        </member>
+        <member name="M:IExp.DrawingBox.Dispose(System.Boolean)">
+            <summary> 
+            Liberare le risorse in uso.
+            </summary>
+            <param name="disposing">ha valore true se le risorse gestite devono essere eliminate, false in caso contrario.</param>
+        </member>
+        <member name="M:IExp.DrawingBox.InitializeComponent">
+            <summary>
+            Metodo necessario per il supporto della finestra di progettazione. Non modificare
+            il contenuto del metodo con l'editor di codice.
+            </summary>
+        </member>
+        <member name="T:System.LexicalException">
+            <summary>
+            Exception class for Lexical Analysis.
+            </summary>
+        </member>
+        <member name="M:System.LexicalException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.LexicalException"/> class.
+            </summary>
+        </member>
+        <member name="M:System.LexicalException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.LexicalException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:System.LexicalException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.LexicalException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="inner">The inner.</param>
+        </member>
+        <member name="T:System.ParseTreeException">
+            <summary>
+            Exception class for Abstract Syntax Tree constuction.
+            </summary>
+        </member>
+        <member name="M:System.ParseTreeException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.ParseTreeException"/> class.
+            </summary>
+        </member>
+        <member name="M:System.ParseTreeException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.ParseTreeException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            
+        </member>
+        <member name="M:System.ParseTreeException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.ParseTreeException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="inner">The inner.</param>
+        </member>
+        <member name="T:System.ParserException">
+            <summary>
+            Exception class for Syntactic Analysis.
+            </summary>
+        </member>
+        <member name="M:System.ParserException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.ParserException"/> class.
+            </summary>
+        </member>
+        <member name="M:System.ParserException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.ParserException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:System.ParserException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.ParserException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="inner">The inner.</param>
+        </member>
+        <member name="T:IExp.Form1">
+            <summary>
+            The Window component.
+            </summary>
+        </member>
+        <member name="M:IExp.Form1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.Form1"/> class.
+            </summary>
+        </member>
+        <member name="M:IExp.Form1.MenuItem_OpenFile_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the MenuItem_OpenFile control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:IExp.Form1.Interpreter">
+            <summary>
+            Interpreters the fileContent.
+            </summary>
+        </member>
+        <member name="M:IExp.Form1.MenuItem_Interpreter_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the MenuItem_Interpreter control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:IExp.Form1.DrawingBox_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Handles the Paint event of the DrawingBox control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:IExp.Form1.DrawingBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the DrawingBox control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:IExp.Form1.MenuItem_Exit_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the MenuItem_Exit control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:IExp.Form1.MenuItem_Help_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the MenuItem_Help control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:IExp.Form1.MenuItem_About_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the MenuItem_About control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:IExp.Form1.MenuItem_Try_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the MenuItem_Try control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="F:IExp.Form1.components">
+            <summary>
+            Variabile di progettazione necessaria.
+            </summary>
+        </member>
+        <member name="M:IExp.Form1.Dispose(System.Boolean)">
+            <summary>
+            Liberare le risorse in uso.
+            </summary>
+            <param name="disposing">ha valore true se le risorse gestite devono essere eliminate, false in caso contrario.</param>
+        </member>
+        <member name="M:IExp.Form1.InitializeComponent">
+            <summary>
+            Metodo necessario per il supporto della finestra di progettazione. Non modificare
+            il contenuto del metodo con l'editor di codice.
+            </summary>
+        </member>
+        <member name="T:IExp.GraphicTree.CircleNode">
+            <summary>
+            A class to draw a circular node that follows the interface <see cref="T:IExp.GraphicTree.IDrawable"/>.
+            </summary>
+        </member>
+        <member name="T:IExp.GraphicTree.IDrawable">
+            <summary>
+            Interface that a node must have in order to be drawn it.
+            </summary>
+        </member>
+        <member name="M:IExp.GraphicTree.IDrawable.GetSize(System.Drawing.Graphics)">
+            <summary>
+            Return the object's needed size.
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <returns>The calulated size.</returns>
+        </member>
+        <member name="M:IExp.GraphicTree.IDrawable.Draw(System.Drawing.Graphics,System.Single,System.Single)">
+            <summary>
+            Draw the node centered at (<paramref name="x"/>, <paramref name="y"/>)
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="x">The x-coordinate of the center.</param>
+            <param name="y">The y-coordinate of the center.</param>
+        </member>
+        <member name="M:IExp.GraphicTree.IDrawable.IsPointInside(System.Drawing.Graphics,System.Drawing.PointF,System.Drawing.PointF)">
+            <summary>
+            Return true if the <paramref name="target"/> point is inside this node
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="center">The center point.</param>
+            <param name="target">The target point.</param>
+            <returns><c>true</c> if the target point is inside this node; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="P:IExp.GraphicTree.IDrawable.Text">
+            <summary>
+            Gets or sets the node's label.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.IDrawable.Font">
+            <summary>
+            Gets or sets the font of the node's label.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.IDrawable.Pen">
+            <summary>
+            Gets or sets the pen used to draw the node's borders.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.IDrawable.BgBrush">
+            <summary>
+            Gets or sets the brush used for the node's background.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.IDrawable.TextBrush">
+            <summary>
+            Gets or sets the brush used to color the node's label.
+            </summary>
+        </member>
+        <member name="M:IExp.GraphicTree.CircleNode.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.GraphicTree.CircleNode"/> class.
+            </summary>
+            <param name="newText">The text we want to assign to the node's label.</param>
+        </member>
+        <member name="M:IExp.GraphicTree.CircleNode.GetSize(System.Drawing.Graphics)">
+            <summary>
+            Return the size of the string plus a margin.
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <returns>The calulated size.</returns>
+        </member>
+        <member name="M:IExp.GraphicTree.CircleNode.Draw(System.Drawing.Graphics,System.Single,System.Single)">
+            <summary>
+            Draw the node centered at (<paramref name="x"/>, <paramref name="y"/>)
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="x">The x-coordinate of the center.</param>
+            <param name="y">The y-coordinate of the center.</param>
+        </member>
+        <member name="M:IExp.GraphicTree.CircleNode.IsPointInside(System.Drawing.Graphics,System.Drawing.PointF,System.Drawing.PointF)">
+            <summary>
+            Return true if the <paramref name="target"/> point is inside this node
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="center">The center point.</param>
+            <param name="target">The target point.</param>
+            <returns><c>true</c> if the target point is inside this node; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="P:IExp.GraphicTree.CircleNode.Text">
+            <summary>
+            Gets or sets the node's label.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.CircleNode.Font">
+            <summary>
+            Gets or sets the font of the node's label.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.CircleNode.Pen">
+            <summary>
+            Gets or sets the pen used to draw the node's borders.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.CircleNode.BgBrush">
+            <summary>
+            Gets or sets the brush used for the node's background.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.CircleNode.TextBrush">
+            <summary>
+            Gets or sets the brush used to color the node's label.
+            </summary>
+        </member>
+        <member name="T:IExp.GraphicTree.GTree`1">
+            <summary>
+            A class to draw a generic tree made of children of the same arbitrary type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The element type of the children of the tree. It has to be IDrawable.</typeparam>
+        </member>
+        <member name="F:IExp.GraphicTree.GTree`1.Node">
+            <summary>The node of the tree of arbitrary type T.</summary>
+        </member>
+        <member name="F:IExp.GraphicTree.GTree`1.children">
+            <summary>Private member for <see cref="P:IExp.GraphicTree.GTree`1.Children"/>.</summary>
+        </member>
+        <member name="F:IExp.GraphicTree.GTree`1.treeArea">
+            <summary>Private member for <see cref="P:IExp.GraphicTree.GTree`1.TreeArea"/>.</summary>
+        </member>
+        <member name="F:IExp.GraphicTree.GTree`1.hidden">
+            <summary>Private member for <see cref="P:IExp.GraphicTree.GTree`1.HiddenSubTree"/>.</summary>
+        </member>
+        <member name="M:IExp.GraphicTree.GTree`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.GraphicTree.GTree`1"/> class.
+            </summary>
+            <param name="newNode">The node of the tree</param>
+        </member>
+        <member name="M:IExp.GraphicTree.GTree`1.GetNodeCenter(System.Drawing.Graphics)">
+            <summary>
+            Calculate the node's center from the infromation of the TreeArea
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <returns>The point to the center of the node.</returns>
+        </member>
+        <member name="M:IExp.GraphicTree.GTree`1.DrawArcs(System.Drawing.Graphics)">
+            <summary>
+             Draw the arcs for the subtree rooted in this node.
+            </summary>
+            <param name="g">The Graphics Context.</param>
+        </member>
+        <member name="M:IExp.GraphicTree.GTree`1.DrawNodes(System.Drawing.Graphics)">
+            <summary>
+            Draw the nodes for the subtree rooted in this node
+            </summary>
+            <param name="g">The Graphics Context.</param>
+        </member>
+        <member name="M:IExp.GraphicTree.GTree`1.MoveTree(System.Single,System.Single)">
+            <summary>
+            Move the entire Tree of (<paramref name="x"/>, <paramref name="y"/>) respect to the previous location.
+            </summary>
+            <param name="x">The x-coordinate.</param>
+            <param name="y">The y-coordinate.</param>
+        </member>
+        <member name="M:IExp.GraphicTree.GTree`1.AddChild(IExp.GraphicTree.GTree{`0})">
+            <summary>
+            Add a child to the tree.
+            </summary>
+            <param name="child">The child to add.</param>
+        </member>
+        <member name="M:IExp.GraphicTree.GTree`1.Draw(System.Drawing.Graphics)">
+            <summary>
+            Draw the subtree rooted in this node.
+            </summary>
+            <param name="g">The Graphics Context.</param>
+        </member>
+        <member name="M:IExp.GraphicTree.GTree`1.Arrange(System.Drawing.Graphics)">
+            <summary>
+            Arrange the node and its children.
+            </summary>
+            <param name="g">The Graphics Context.</param>
+        </member>
+        <member name="M:IExp.GraphicTree.GTree`1.NodeAtPoint(System.Drawing.Graphics,System.Drawing.PointF)">
+            <summary>
+            Return the GTree at the <paramref name="target"/> point (or <c>null</c> if there isn't one there).
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="target">The target point.</param>
+            <returns>Node of the Tree pointed.</returns>
+        </member>
+        <member name="P:IExp.GraphicTree.GTree`1.OldTextNode">
+            <summary>
+            Gets or sets a space where to keep save the node's label.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.GTree`1.SyntacticNode">
+            <summary>
+            Gets or sets the <see cref="P:IExp.GraphicTree.GTree`1.SyntacticNode"/> object which has genereted it
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.GTree`1.Children">
+            <summary>
+            Gets the The list of children rooted in this node of arbitrary type T.
+            We have a list of children since it is a generic tree.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.GTree`1.HiddenSubTree">
+            <summary>
+            Gets or sets a value indicating whether to hide or not the children of the node.
+            </summary>
+            <value>
+            The HiddenSubTree property gets/sets the value of the bool field, hidden.
+            </value>
+        </member>
+        <member name="P:IExp.GraphicTree.GTree`1.ArcPen">
+            <summary>
+            Gets or sets the pen used to draw the arcs of the tree.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.GTree`1.TreeArea">
+            <summary>
+            Gets or sets the rectangle that encloses the tree.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.GTree`1.X">
+            <summary>
+            Gets or sets the x-coordinate of the rectangle that encloses the tree.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.GTree`1.Y">
+            <summary>
+            Gets or sets the y-coordinate of the rectangle that encloses the tree.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.GTree`1.Width">
+            <summary>
+            Gets or sets the Width property of the rectangle that encloses the tree.
+            </summary>
+        </member>
+        <member name="P:IExp.GraphicTree.GTree`1.Height">
+            <summary>
+            Gets or sets the Height property of the rectangle that encloses the tree.
+            </summary>
+        </member>
+        <member name="T:IExp.AbstractSyntaxTree.ValueNode">
+            <summary>
+            Denote a node of the Abstract Syntax Tree that contain an integer value.
+            </summary>
+        </member>
+        <member name="M:IExp.AbstractSyntaxTree.ValueNode.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.AbstractSyntaxTree.ValueNode"/> class.
+            </summary>
+            <param name="text">Take the value in text format.</param>
+        </member>
+        <member name="M:IExp.AbstractSyntaxTree.ValueNode.GetValue">
+            <summary>
+            Return the value of the node.
+            </summary>
+            <returns>
+            The value of the node.
+            </returns>
+        </member>
+        <member name="T:IExp.SyntacticAnalysis.Parser">
+            <summary>
+            It is the class performing the syntactic analysis,
+            that is the process of analysing a string according to the rules of a formal grammar.
+            </summary>
+        </member>
+        <member name="M:IExp.SyntacticAnalysis.Parser.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.SyntacticAnalysis.Parser"/> class.
+            </summary>
+            <param name="text">The text to be parsed.</param>
+        </member>
+        <member name="M:IExp.SyntacticAnalysis.Parser.MatchToken(IExp.LexicalAnalysis.TokenType)">
+            <summary>
+            Try to see if the token found has the expected type we wanted. In the positive case, it move to the next Token.
+            </summary>
+            <param name="t">TokenType we expect at this point.</param>
+            <returns><c>true</c> if the token is matched; otherwise, <c>false</c>.</returns>
+            <exception cref="T:System.ParserException">Thrown when the token found has not expected type we wanted.</exception>
+        </member>
+        <member name="M:IExp.SyntacticAnalysis.Parser.Exp">
+            <summary>
+            Constructs the abstract syntax tree for the Expression.
+            </summary>
+            <returns>The abstract syntax tree constructed analysing the Expression.</returns>
+        </member>
+        <member name="M:IExp.SyntacticAnalysis.Parser.MoreTerms(IExp.AbstractSyntaxTree.SyntacticNode)">
+            <summary>
+            Constructs the abstract syntax tree for this part of the Expression.
+            </summary>
+            <param name="n">The abstract syntax tree of the left part of the Expression.</param>
+            <returns>The abstract syntax tree constructed analysing this part of the Expression.</returns>
+        </member>
+        <member name="M:IExp.SyntacticAnalysis.Parser.Term">
+            <summary>
+            Constructs the abstract syntax tree for the Term.
+            </summary>
+            <returns>The abstract syntax tree constructed analysing the Term.</returns>
+        </member>
+        <member name="M:IExp.SyntacticAnalysis.Parser.MoreFactors(IExp.AbstractSyntaxTree.SyntacticNode)">
+            <summary>
+            Constructs the abstract syntax tree for this part of the Term.
+            </summary>
+            <param name="n">The abstract syntax tree of the left part of the Term.</param>
+            <returns>The abstract syntax tree constructed analysing this part of the Term.</returns>
+        </member>
+        <member name="M:IExp.SyntacticAnalysis.Parser.Factor">
+            <summary>
+            Constructs the abstract syntax tree for the Factor.
+            </summary>
+            <returns>The abstract syntax tree constructed analysing the Factor.</returns>
+        </member>
+        <member name="M:IExp.SyntacticAnalysis.Parser.Factor2">
+            <summary>
+            Constructs the abstract syntax tree for the Factor2.
+            </summary>
+            <returns>The abstract syntax tree constructed analysing the Factor2.</returns>
+        </member>
+        <member name="M:IExp.SyntacticAnalysis.Parser.ParseTree">
+            <summary>
+            Parse the source text and constructs an abstract syntax tree.
+            </summary>
+            <returns>An abstract syntax tree.</returns>
+        </member>
+        <member name="T:IExp.AbstractSyntaxTree.BinaryOperationNode">
+            <summary>
+            Denote a binary operation node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:IExp.AbstractSyntaxTree.BinaryOperationNode.#ctor(IExp.AbstractSyntaxTree.OperationType,IExp.AbstractSyntaxTree.SyntacticNode,IExp.AbstractSyntaxTree.SyntacticNode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.AbstractSyntaxTree.BinaryOperationNode"/> class.
+            </summary>
+            <param name="t">The type of operation that we want to execute.</param>
+            <param name="l">The left child.</param>
+            <param name="r">The right child.</param>
+        </member>
+        <member name="M:IExp.AbstractSyntaxTree.BinaryOperationNode.GetValue">
+            <summary>
+            The method takes the value of the left child and of the right child and executes the requested operation on them.
+            </summary>
+            <returns>
+            The value of the executed operation.
+            </returns>
+            <exception cref="T:System.ParseTreeException">Thrown when the operation is is not supported.</exception>
+        </member>
+        <member name="M:IExp.Program.Main">
+            <summary>
+            Punto di ingresso principale dell'applicazione.
+            </summary>
+        </member>
+        <member name="T:IExp.LexicalAnalysis.Scanner">
+            <summary>
+            It is the class performing the lexical analysis,
+            that is the process of converting a sequence of characters into a sequence of tokens.
+            </summary>
+        </member>
+        <member name="M:IExp.LexicalAnalysis.Scanner.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.LexicalAnalysis.Scanner"/> class.
+            </summary>
+            <param name="text">The text to convert.</param>
+        </member>
+        <member name="M:IExp.LexicalAnalysis.Scanner.Skip_WhiteSpace">
+            <summary>
+            Skips all whitespace characters to get to the meaningful text.
+            </summary>
+            <exception cref="T:System.LexicalException">Thrown when a newline is found.</exception>
+        </member>
+        <member name="M:IExp.LexicalAnalysis.Scanner.ScanToken">
+            <summary>
+            Analysing the current character, we try to recognize a token.
+            </summary>
+            <returns>The recognized token.</returns>
+            <exception cref="T:System.LexicalException">Thrown when the current character cannot be recognized.</exception>
+        </member>
+        <member name="M:IExp.LexicalAnalysis.Scanner.Tokenize">
+            <summary>
+            Tokenize the source text.
+            </summary>
+            <returns>A collection of Token that can be enumerated.</returns>
+        </member>
+        <member name="T:IExp.LexicalAnalysis.TokenType">
+            <summary>
+            It is an enumeration type that reports all possible tokens supported by the <see cref="T:IExp.LexicalAnalysis.Token"/> class.
+            </summary>
+        </member>
+        <member name="F:IExp.LexicalAnalysis.TokenType.ROUNDBR_OPEN">
+            <summary>"(" symbol</summary>
+        </member>
+        <member name="F:IExp.LexicalAnalysis.TokenType.ROUNDBR_CLOSE">
+            <summary>")" symbol</summary>
+        </member>
+        <member name="F:IExp.LexicalAnalysis.TokenType.NUMBER">
+            <summary>Any integer number</summary>
+        </member>
+        <member name="F:IExp.LexicalAnalysis.TokenType.PLUS">
+            <summary>"+" operation</summary>
+        </member>
+        <member name="F:IExp.LexicalAnalysis.TokenType.MINUS">
+            <summary>"-" operation</summary>
+        </member>
+        <member name="F:IExp.LexicalAnalysis.TokenType.MUL">
+            <summary>"*" operation</summary>
+        </member>
+        <member name="F:IExp.LexicalAnalysis.TokenType.DIV">
+            <summary>"÷" operation</summary>
+        </member>
+        <member name="F:IExp.LexicalAnalysis.TokenType.UNKNOWN">
+            <summary>Token not recognized</summary>
+        </member>
+        <member name="F:IExp.LexicalAnalysis.TokenType.EOF">
+            <summary>End of file</summary>
+        </member>
+        <member name="T:IExp.LexicalAnalysis.Token">
+            <summary>
+            The class constructs a Token, that is a single atomic unit of the language.
+            </summary>
+        </member>
+        <member name="M:IExp.LexicalAnalysis.Token.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.LexicalAnalysis.Token"/> class.
+            </summary>
+        </member>
+        <member name="M:IExp.LexicalAnalysis.Token.#ctor(IExp.LexicalAnalysis.TokenType,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IExp.LexicalAnalysis.Token"/> class.
+            </summary>
+            <param name="type">The type of the Token.</param>
+            <param name="value">The text value.</param>
+            <param name="index">The position where it was found.</param>
+        </member>
+        <member name="M:IExp.LexicalAnalysis.Token.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:IExp.LexicalAnalysis.Token.Type">
+            <summary>
+            Gets or sets the type of token that we want to create.
+            </summary>
+        </member>
+        <member name="P:IExp.LexicalAnalysis.Token.Value">
+            <summary>
+            Gets or sets the text value of this token.
+            </summary>
+        </member>
+        <member name="P:IExp.LexicalAnalysis.Token.Index">
+            <summary>
+            Gets or sets the position inside the source text where this token was found.
+            </summary>
+        </member>
+        <member name="T:IExp.Properties.Resources">
+            <summary>
+              Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+            </summary>
+        </member>
+        <member name="P:IExp.Properties.Resources.ResourceManager">
+            <summary>
+              Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+            </summary>
+        </member>
+        <member name="P:IExp.Properties.Resources.Culture">
+            <summary>
+              Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte
+              le ricerche di risorse che utilizzano questa classe di risorse fortemente tipizzata.
+            </summary>
+        </member>
+    </members>
+</doc>
