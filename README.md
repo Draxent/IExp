@@ -32,7 +32,7 @@ Where try.txt is an example file provided to you.
 ##Examples
 ```c#
   // Initialize the Scanner.
-  Scanner scanner = new Scanner(fileContent);
+  Scanner scanner = new Scanner("(10+2*(7-1+3-5)+8/4-4/2*-5*(3-1))/(1--3)");
   
   try
   {
@@ -71,7 +71,7 @@ Where try.txt is an example file provided to you.
 ##Mathematical Supported Operators
 
 | Operator	|       Description       |
-|:--------:|-------------------------|
+|:--------:|:-----------------------:|
 |    +     |	Additive operator       |
 |    -     |	Subtraction operator    |
 |    *     |	Multiplication operator |
