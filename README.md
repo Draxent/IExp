@@ -71,7 +71,7 @@ Where try.txt is an example file provided to you.
 ##Mathematical Supported Operators
 
 | Operator	|       Description       |
-|:--------:|:------------------------|
+|:--------:|-------------------------|
 |    +     |	Additive operator       |
 |    -     |	Subtraction operator    |
 |    *     |	Multiplication operator |
