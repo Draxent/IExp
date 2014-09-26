@@ -13,11 +13,11 @@ It contains a menu containing the items:
 
 The Help button says what you should do in order to have you expression file interpeter.<br />
 I report here the steps:<br />
-1. Click on File → Open File
-2. Select a text file with the same format of try.txt
-3. Click on Execute -> Iterpreter
-4. See the result on the TextArea
-5. Try to click on the nodes of the tree
+ 1. Click on File → Open File
+ 2. Select a text file with the same format of try.txt
+ 3. Click on Execute -> Iterpreter
+ 4. See the result on the TextArea
+ 5. Try to click on the nodes of the tree
 Where try.txt is an example file provided to you.
 
 ####Key Features:
