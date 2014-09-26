@@ -5,14 +5,14 @@ IExp
 
 IExp is an interpreter, written in c#, for simple mathematical expressions.
 
-It is really simple to use. You need just to run it and it will appear a Windows Form.
+It is really simple to use. You need just to run it and it will appear a Windows Form.<br />
 It contains a menu containing the items:
  - <b>File</b> → containing OpenFile that allow you to open the file that you want to interpreter
  - <b>Interpreter</b> → interpreter the opened file
  - <b>?</b> → containing a Help button
 
-The Help button says what you should do in order to have you expression file interpeter.
-I report here the steps:
+The Help button says what you should do in order to have you expression file interpeter.<br />
+I report here the steps:<br />
 1. Click on File → Open File
 2. Select a text file with the same format of try.txt
 3. Click on Execute -> Iterpreter
