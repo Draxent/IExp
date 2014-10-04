@@ -31,28 +31,10 @@ Where <i>try.txt</i> is an example file provided to you.
 
 ##Examples
 ```c#
-  // Initialize the Scanner.
-  Scanner scanner = new Scanner("(10+2*(7-1+3-5)+8/4-4/2*-5*(3-1))/(1--3)");
-  
-  try
-  {
-    // Create the collection of Token that can be enumerated.
-    IEnumerable<Token> tokens = scanner.Tokenize();
-    
-    // Write the collection on the Console.
-    foreach (var token in tokens)
-      System.Console.Write("   -   " + token + "\n");
-  }
-  catch (System.LexicalException ex)
-  {
-    // Write the LexicalException on the Console.
-    System.Console.Write(ex.Message + "\n");
-  }
-  
   try
   {
     // Initialize the Parser.
-    Parser parser = new Parser(fileContent);
+    Parser parser = new Parser("(10+2*(7-1+3-5)+8/4-4/2*-5*(3-1))/(1--3)");
     
     // Create the Abstract Syntax Tree.
     root = parser.ParseTree();
