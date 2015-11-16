@@ -58,3 +58,10 @@ Where <i>try.txt</i> is an example file provided to you.
 |    -     |	Subtraction operator    |
 |    *     |	Multiplication operator |
 |    ÷     |	Division operator       |
+
+###License
+The MIT License (MIT)
+
+Copyright (c) 2015 Federico Conte
+
+http://opensource.org/licenses/MIT
