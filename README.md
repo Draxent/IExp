@@ -1,7 +1,7 @@
 IExp
 ====
 
-##Introduction
+## Introduction
 
 <b>IExp</b> is an interpreter, written in <b>c#</b>, for simple mathematical expressions.
 
@@ -20,7 +20,7 @@ I report here the steps:<br />
  5. Try to click on the nodes of the tree<br />
 Where <i>try.txt</i> is an example file provided to you.
 
-####Key Features:
+#### Key Features:
 
 - Simple to use
 - Full of comments
@@ -29,7 +29,7 @@ Where <i>try.txt</i> is an example file provided to you.
 - Graphical interface of the Abstract Syntax Tree
 - No dependencies to external libraries
 
-##Examples
+## Examples
 ```c#
   try
   {
@@ -50,7 +50,7 @@ Where <i>try.txt</i> is an example file provided to you.
   }
 ```
 
-##Mathematical Supported Operators
+## Mathematical Supported Operators
 
 | Operator	|       Description       |
 |:--------:|:-----------------------:|
@@ -59,7 +59,7 @@ Where <i>try.txt</i> is an example file provided to you.
 |    *     |	Multiplication operator |
 |    ÷     |	Division operator       |
 
-###License
+### License
 The MIT License (MIT)
 
 Copyright (c) 2015 Federico Conte
